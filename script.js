@@ -1,20 +1,16 @@
+//your JS code here. If required.
 function secondHighest(arr) {
-    if (arr.length < 2) {
-        return -Infinity;
-    }
-
-    let highest = -Infinity;
-    let secondHighest = -Infinity;
-
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] > highest) {
-            secondHighest = highest;
-            highest = arr[i];
-        } else if (arr[i] > secondHighest && arr[i] < highest) {
-            secondHighest = arr[i];
+    if (arr.length < 2) return -Infinity;
+    
+    let first = -Infinity, second = -Infinity;
+    for (let num of arr) {
+        if (num > first) {
+            second = first;
+            first = num;
+        } else if (num > second && num < first) {
+            second = num;
         }
     }
 
-    // Handle the case where all elements are the same
-    return secondHighest === -Infinity ? -Infinity : secondHighest;
+    return (second === -Infinity) ? -Infinity : second;
 }
